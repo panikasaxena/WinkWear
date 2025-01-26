@@ -11,11 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text className="font-bold text-lg my-10">Welcome !</Text>
-      <Link href="/sign_in"> Sign In</Link>
-      <Link href="/profile"> Profile</Link>
-      <Link href="/cart"> Cart</Link>
-      <Link href="/wishlist"> Wish List</Link>
+      <Text className="font-bold text-lg my-10">Welcome to WinkWear !</Text>
     </View>
   );
 }
