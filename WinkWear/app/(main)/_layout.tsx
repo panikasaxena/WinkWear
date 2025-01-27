@@ -1,7 +1,7 @@
 import "./global.css";
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 const _layout = () => {
@@ -20,21 +20,36 @@ const _layout = () => {
     >
 
         {/* Home Tab */}
-      <Tabs.Screen
+        <Tabs.Screen
         name="index"
         options={{
           title: "Home",
+          headerShown: true, // Enable the header for the Home screen only
+          headerTitle: "Home", // Custom header title
           tabBarIcon: ({ color }: { color: string }) => (
             <FontAwesome name="home" size={24} color={color} />
           ),
+          // Add a search button in the top-right corner
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                console.log("Search button pressed!");
+                // Add your navigation or functionality here
+              }}
+              style={{ marginRight: 10 }}
+            >
+              <FontAwesome name="search" size={24} color="#007AFF" />
+            </TouchableOpacity>
+          ),
         }}
       />
+
       <Tabs.Screen
         name="cart"
         options={{
           title: "Cart",
           tabBarIcon: ({ color }: { color: string }) => (
-            <FontAwesome name="home" size={24} color={color} />
+            <FontAwesome name="shopping-cart" size={24} color={color} />
           ),
         }}
       />
@@ -43,7 +58,7 @@ const _layout = () => {
         options={{
           title: "Profile",
           tabBarIcon: ({ color }: { color: string }) => (
-            <FontAwesome name="home" size={24} color={color} />
+            <FontAwesome name="user" size={24} color={color} />
           ),
         }}
       />
@@ -52,7 +67,7 @@ const _layout = () => {
         options={{
           title: "Wish List",
           tabBarIcon: ({ color }: { color: string }) => (
-            <FontAwesome name="home" size={24} color={color} />
+            <FontAwesome name="heart" size={24} color={color} />
           ),
         }}
       />
