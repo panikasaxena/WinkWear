@@ -3,17 +3,24 @@ import "./global.css";
 
 export default function RootLayout() {
   return (
-    <Stack>
-      {/* Auth Group - No Header */}
-      <Stack.Screen
-        name="(auth)" // Matches the (auth) folder
-        options={{ headerShown: false }} // Hide header for all auth screens
-      />
-      {/* Main Group - No Header */}
-      <Stack.Screen
-        name="(main)" // Matches the (main) folder
-        options={{ headerShown: false }} // Hide header for all main screens
-      />
+    <Stack
+      screenOptions={{
+        headerShown: true, // Show header for all screens
+        headerTitle: "WinkWear", // Set the app name as the header title
+        headerTitleAlign: "center", // Center the title
+        headerStyle: {
+          backgroundColor: "#f8f8f8", // Customize header background color
+        },
+        headerTitleStyle: {
+          fontWeight: "bold", // Customize title font
+          fontSize: 20,
+        },
+      }}
+    >
+      {/* Auth Group */}
+      <Stack.Screen name="(auth)" />
+      {/* Main Group */}
+      <Stack.Screen name="(main)" />
     </Stack>
   );
 }
